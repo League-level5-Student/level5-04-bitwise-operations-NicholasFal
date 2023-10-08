@@ -30,7 +30,18 @@ import org.junit.jupiter.api.Test;
  */
 public class _02_BinaryToDecimal {
     int convertBinaryStringToDecimalInt(String binStr) {
-        return -1;
+        int number = 0;
+        int exponent;
+        char num;
+    	for(int i = 1; i < binStr.length(); i++) {
+        	num = binStr.charAt(binStr.length() - i);
+        	//int num1 = num - 48;
+        	exponent = 2^(i-1);
+        	System.out.println(exponent);
+        	System.out.println("num " + num);
+        	number+=(num * exponent);
+        }
+    	return number;
     }
 
     @Test

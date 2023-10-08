@@ -55,7 +55,6 @@ public class _04_NegativeBinaryNumbers {
         byte b = (byte) 0b11111111;
         System.out.println(printBin(b));
         System.out.println("~11111111 + 1 = " + printBin((byte)(~b + 1)));
-        
         /*
          * Positive number to negative number
          */
