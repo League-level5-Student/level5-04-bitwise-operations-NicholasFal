@@ -31,15 +31,18 @@ import org.junit.jupiter.api.Test;
 public class _02_BinaryToDecimal {
     int convertBinaryStringToDecimalInt(String binStr) {
         int number = 0;
-        int exponent;
-        char num;
-    	for(int i = 1; i < binStr.length(); i++) {
-        	num = binStr.charAt(binStr.length() - i);
-        	//int num1 = num - 48;
-        	exponent = 2^(i-1);
+        int exponent = 1;
+        int num;
+    	for(int i = binStr.length() - 1; i >= 0; i--) {
+        	num = Integer.parseInt(String.valueOf(binStr.charAt(i)));
+        	
         	System.out.println(exponent);
         	System.out.println("num " + num);
-        	number+=(num * exponent);
+        	int temp = num* exponent;
+        	number+= temp;
+        	exponent *=2;
+        	//1 2 4 8 16 32 ... 
+        	System.out.println("SUM: " + number);
         }
     	return number;
     }

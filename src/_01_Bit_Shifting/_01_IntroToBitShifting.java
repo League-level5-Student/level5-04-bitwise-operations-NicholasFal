@@ -26,8 +26,8 @@ package _01_Bit_Shifting;
  * 
  * The difference between >> and >>> is when there are negative int or long
  * integers and the leftmost bit (sign bit) is a 1. For example,
- *      int b = 0b10000000000000000000000000000000; // -2147483648 decimal
- *      b = b >> 1;         // b is 0b11000000000000000000000000000000
+// *      int b = 0b10000000000000000000000000000000; // -2147483648 decimal
+// *      b = b >> 1;         // b is 0b11000000000000000000000000000000
  *                          //      fill leftmost bit with 1
  *      b = b >>> 1;        // b is 0b01100000000000000000000000000000
  *                          //      fill leftmost bit with 0
