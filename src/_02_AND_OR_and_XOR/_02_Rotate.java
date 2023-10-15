@@ -46,6 +46,7 @@ public class _02_Rotate {
         return shift | leftShift;
     }
     
+
     @Test
     void testRotateLeft() {
         int i = -8;

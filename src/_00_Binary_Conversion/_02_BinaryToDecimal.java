@@ -41,6 +41,7 @@ public class _02_BinaryToDecimal {
         	int temp = num* exponent;
         	number+= temp;
         	exponent *=2;
+        	
         	//1 2 4 8 16 32 ... 
         	System.out.println("SUM: " + number);
         }

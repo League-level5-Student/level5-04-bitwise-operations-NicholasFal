@@ -55,6 +55,8 @@ public class _02_HexadecimalPrinter implements ActionListener {
     	return "-";
     }
     
+    
+    
     String binaryToDec(String binaryStr) {
     	 int number = 0;
          int exponent = 1;
