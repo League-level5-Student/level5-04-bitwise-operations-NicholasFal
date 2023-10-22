@@ -46,16 +46,22 @@ public class LightSwitches implements GameControlScene {
              Color.PINK,        // 6
              Color.CYAN         // 7
             };
+    
 
     // 8-bit bitmap. Leave as int so methods won't have to cast to a byte
     int lightsOnOff = 0;
-
+    //00000100
     /*
      * This method should check if the specified light is on, example:
      * index = 6        // return true if pink is on (bit 6 == 1)
      */
     boolean isLightOn(int index) {
-        return false;
+        int temp = lightsOnOff&(1<<index);
+        if(temp == 0) {
+        	return false;
+        } else {
+        	return true;
+        }
     }
     
     /*
