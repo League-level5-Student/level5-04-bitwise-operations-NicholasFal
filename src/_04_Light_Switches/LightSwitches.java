@@ -68,8 +68,12 @@ public class LightSwitches implements GameControlScene {
      * This method should only turn on 1 light, example:
      * index = 4        // turn off yellow only (set bit 4 = 1)
      */
+    // 0 1 2 3 4 5 6 7
+    // 0 0 0 1 0 0 0 0
     void turnLightOn(int index) {
-        
+     	if(!isLightOn(index)) {
+     		lightsOnOff = (int)(lightsOnOff + (2^index));
+     	}
     }
     
     /*
@@ -77,7 +81,9 @@ public class LightSwitches implements GameControlScene {
      * index = 0        // turn off blue only (set bit 0 = 0)
      */
     void turnLightOff(int index) {
-        
+        if(isLightOn(index)) {
+        	lightsOnOff = (int)(lightsOnOff - (2^index));
+        }
     }
     
     /*
@@ -85,7 +91,11 @@ public class LightSwitches implements GameControlScene {
      * lightsBitmap = 0b01100110  // lights 1, 2, 5, 6 on
      */
     void turnMultiLightsOn(int lightsBitmap) {
-        
+        for(int i = 7; i >= 0; i--) {
+        	if(lightsBitmap >> i % 2 == 1) {
+        		turnLightOn(i);
+        	}
+        }
     }
     
     /*
@@ -93,7 +103,11 @@ public class LightSwitches implements GameControlScene {
      * lightsBitmap = 0b10000001  // lights 0, 7 off
      */
     void turnMultiLightsOff(int lightsBitmap) {
-        
+        for(int i = 7; i >= 0; i--) {
+        	if(lightsBitmap >> i % 2 == 0) {
+        		turnLightOff(i);
+        	}
+        }
     }
     
     /*
@@ -106,7 +120,13 @@ public class LightSwitches implements GameControlScene {
      *                               orange(3) and yellow(4) on
      */
     void toggleLights(int lightsBitmap) {
-        
+        for(int i = 7; i >= 0; i--) {
+        	if(lightsBitmap >> i % 2 == 0) {
+        		turnLightOff(i);
+        	} else if(lightsBitmap >> i % 2 == 1) {
+        		turnLightOn(i);
+        	}
+        }
     }
     
     void runLightSequence1() {
